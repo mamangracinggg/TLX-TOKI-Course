@@ -17,8 +17,8 @@ int main(){
 	for(int i = 1; i <= n; i++){ 
 		for(int j = 1; j <= p; j++){
 			simpan = 0;
-			for(int k = 1; k <= p; k++){
-				simpan += a[i][k] * b[k][j];
+			for(int k = 1; k <= m; k++){
+				simpan += a[i][k] * b[k][j]; // matriks n x m dikali matriks m x p
 			}
 			c[i][j] = simpan;
 		}
