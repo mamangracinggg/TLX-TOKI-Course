@@ -35,3 +35,20 @@ int main(){
 	printf("%d %d\n", terkecil, terbesar);
 	return 0;
 }
+
+/*
+n = 3
+
+idx 0 1 2
+0     * *
+1       *
+2
+t[0][1] t[0][2] t[1][2]
+
+cari yg terkecil dan terbesar
+terkecil = t[0][1]
+bandingkan terkecil  dgn  t[0][1] = terkecil
+           terkecil  dgn  t[0][2] = terkecil
+           terkecil  dgn  t[1][2] = terkecil
+
+*/
