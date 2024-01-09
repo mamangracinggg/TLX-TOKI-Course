@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdbool.h>
+#include<string.h>
+int main(){
+    int N, M, K;
+    scanf("%d %d %d", &N, &M, &K);
+    int grid[N+2][M+2];
+    //set grid
+    for(int i = 0; i <= N+1; i++){
+        for(int j = 0; j <= M+1; j++){
+            grid[i][j] = 1;
+        }
+    }
+    
+    for(int i = 1; i <= N; i++){
+        for(int j = 1; j <= M; j++){
+            scanf("%d", &grid[i][j]);
+        }
+    }
+    
+    int val[N+1][M+1];
+    bool find = false;
+    int currRow = 999;
+    int currCol = 999;
+    for(int i = 1; i <= N; i++){
+        for(int j = 1; j <= M; j++){
+            val[i][j] = grid[i-1][j] * grid[i+1][j] * grid[i][j+1] * grid[i][j-1];
+            if(val[i][j] == K){
+                if(j < currCol){
+                    currCol = j;
+                    currRow = i;
+                }else if(j == currCol){
+                    if(i < currRow){
+                        currCol = j;
+                        currRow = i;
+                    }
+                }
+                find = true;
+            }
+        }
+    }
+    
+    if(find)printf("%d %d", currRow, currCol);
+    
+    if(!find)printf("0 0");
+    
+    return 0;
+}
