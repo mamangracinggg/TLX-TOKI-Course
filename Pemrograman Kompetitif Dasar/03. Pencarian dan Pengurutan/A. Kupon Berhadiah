@@ -1,0 +1,50 @@
+#include<stdio.h>
+
+void bubblesort(int arr[], int size){
+    for(int i = 0; i < size; i++){
+        for(int j = 0; j < size-1-i; j++){
+            if(arr[j] > arr[j+1]){
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+
+int positif(int x){
+    if(x < 0)
+        return -1*x;
+    else
+        return x;
+}
+
+int main(){
+    int N, X;
+    scanf("%d %d", &N, &X);
+    int kupon[N];
+    for(int i = 0; i < N; i++){
+        scanf("%d", &kupon[i]);
+    }
+    int range[N];
+    for(int i = 0; i < N; i++){
+        range[i] = positif(X - kupon[i]);
+    }
+    
+    bubblesort(range, N);
+    
+    //jika ada 2 kupon yang jaraknya sama dengan X maka pilih kupon yang paling kecil (X-range[0]))
+    if(range[0] == range[1]){ 
+        printf("%d", X - range[0]);
+    }else{
+    //cari kupon yang menghasilkan jarak terpendek    
+        for(int i = 0; i < N; i++){
+            if(X - range[0] == kupon[i] || X + range[0] == kupon[i]){
+                printf("%d", kupon[i]);
+                break;
+            }
+        }
+    }
+    
+    return 0;
+}
