@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+    int N;
+    scanf("%d", &N);
+    char string[N+1][15];
+    for(int i = 1; i <= N; i++){
+        scanf("%s", string[i]);
+        int nomorUrut = i; //bebek yang baru datang mendapat antrian i
+        for(int j = 1; j < i; j++){ //bebek yang baru datang dibandingkan dengan setiap bebek yang sudah datang sebelumnya 
+            if(strcmp(string[i], string[j]) < 0){
+                nomorUrut--; //jika nama bebek yg baru dtg lebih kecil secara leksikografis, maka nomor ururtnya semakin kecil
+            }
+            
+        }
+        printf("%d\n", nomorUrut);
+    }
+    
+    return 0;
+}
