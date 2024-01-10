@@ -1,0 +1,20 @@
+#include<stdio.h>
+
+void binary(int N){
+    if(N == 1){
+        printf("1");
+    }else if(N % 2 == 0){
+        binary(N/2);
+        printf("0");
+    }else{
+        binary(N/2);
+        printf("1");
+    }
+}
+
+int main(){
+    int N;
+    scanf("%d", &N);
+    binary(N);
+    return 0;
+}
