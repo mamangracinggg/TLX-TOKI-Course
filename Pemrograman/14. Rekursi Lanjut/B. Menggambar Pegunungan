@@ -1,0 +1,21 @@
+#include<stdio.h>
+
+void gunung(int n){
+    if(n <= 1){
+        printf("*\n");
+    }else{
+        gunung(n-1);
+        for(int i = 0; i < n; i++){
+            printf("*");
+        }
+        printf("\n");
+        gunung(n-1);
+    }
+}
+
+int main(){
+    int N;
+    scanf("%d", &N);
+    gunung(N);
+    return 0;
+}
